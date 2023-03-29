@@ -1,0 +1,114 @@
+<div>
+  <button class="btn-rout" routerLink="/paciente" routerLinkActive='active' mat-icon>
+    <mat-icon style="margin-top: 10%;">arrow_back</mat-icon>
+  </button>
+  <h3 class="titulo"><em>{{ dsnombre_dueno }}: </em> dueño de <strong>{{ total }} </strong></h3>
+  <h3 class="titulo2" *ngIf="total  > 1"> mascotas</h3>
+  <h3 class="titulo2" *ngIf="total  == 1"> mascota</h3>
+  <h3 class="titulo2" *ngIf="total  < 1">, no tiene mascotas </h3>
+  <br><br><br>
+</div>
+
+
+<button class="nuevo" mat-icon (click)="open(content)" mat-list-item>
+  Nuevo<mat-icon>pets</mat-icon>
+</button>
+
+<div>
+  <div *ngIf="total  >= 1" class="scrollable-container">
+    <table datatable class="table table-bordered hover table-borderless" id="table-mascota">
+      <thead>
+        <tr>
+          <th>N°</th>
+          <th>Nombre mascota</th>
+          <th>Especie</th>
+          <th>Raza</th>
+          <th>F. nacimiento</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="text-align:center;" *ngFor="let item of datosMascotas, index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.dsnombre_mascota }}</td>
+          <td>{{ item.dsespecie }}</td>
+          <td>{{ item.dsraza }}</td>
+          <td>{{ item.dtfecha_nacimiento }}</td>
+          <td>
+            <button class="edit" mat-icon (click)="editar(item)" (click)="openEdit(content)" matTooltip="Editar"
+              matTooltipClass="edit-tooltip">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="center" *ngIf="total  < 1">
+  <div>
+    <img class="img2" src="./../../../../assets/utils/img2.jfif" alt="" class="menu-logo">
+  </div>
+</div>
+<!-- Modal para agregar mascotas -->
+<ng-template class="template" #content let-c="close" let-d="dismiss">
+  <form [formGroup]="myForm">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Mascota</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+
+    <div class="modal-body" mat-icon>
+      <input formControlName="nmid" hidden>
+      <div class="cont-nombre">
+        <mat-icon class="icon-client">account_circle</mat-icon>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Nombre mascota</mat-label>
+          <input class="controls" matInput #input type="text" formControlName="dsnombre_mascota" autocomplete="off"
+            id="dsnombre_mascota">
+        </mat-form-field>
+      </div>
+
+      <div class="cont-nombre">
+        <mat-icon class="icon-client">chrome_reader_mode</mat-icon>
+        <mat-form-field class="full-width"  appearance="outline">
+          <mat-label>Especie</mat-label>
+          <select class="controls" formControlName="nmid_especie" matNativeControl required>
+            <option selected value="1">Perro</option>
+            <option selected value="2">Gato</option>
+            <option selected value="3">Pato</option>
+            <option selected value="4">Ave</option>
+            <option selected value="5">Otro</option>
+          </select>
+        </mat-form-field>
+      </div>
+
+      <div class="cont-nombre">
+        <mat-icon class="icon-client">fingerprint</mat-icon>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Raza</mat-label>
+          <input class="controls" matInput #input type="text" formControlName="dsraza" autocomplete="off" id="dsraza">
+        </mat-form-field>
+      </div>
+
+      <div class="cont-nombre">
+        <mat-icon class="icon-client">location_city</mat-icon>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Fecha de nacimiento</mat-label>
+          <input matInput class="controls" matInput #input type="date" formControlName="dtfecha_nacimiento"
+            autocomplete="off" id="dtfecha_nacimiento">
+        </mat-form-field>
+        <input formControlName="nmid_dueno" hidden>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button *ngIf="myForm.valid" type="submit" class="save" title="Guardar y salir">
+        <mat-icon class="icon-button" (click)="d('Cross click')" (click)="guardar(myForm)">save</mat-icon>
+      </button>
+      <button class="close" type="button" (click)="d('Cross click')">Cancelar</button>
+    </div>
+
+  </form>
+</ng-template>

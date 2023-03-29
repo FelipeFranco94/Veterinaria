@@ -1,0 +1,140 @@
+.toolbar-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.menu-item {
+  font-size: 110%;
+
+}
+
+.header-toolbar {
+  padding: 0px 2px;
+  background-color: rgba(41, 66, 102, 255);
+  position: fixed;
+  z-index: 2;
+}
+
+.icon {
+  color: #ffffff;
+  margin-right: 0.3em;
+}
+
+.icon-person {
+  padding-left: 5px;
+  margin-left: 20%;
+  color: #ffffff;
+}
+
+.user {
+  margin-top: 1%;
+  margin-left: 1%;
+  color: #ffffff;
+}
+
+.title-menu {
+  margin-left: 40%;
+  color: #ffffff;
+}
+
+.menu-logo {
+  margin: 50px 0px 0px 0px;
+  width: 220px;
+  object-fit: cover;
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.content {
+  background-color: #ffffff;
+}
+
+.sidenav {
+  background-color: rgba(41, 66, 102, 255);
+  a {
+    color: #ffffff;
+  }
+}
+
+.active {
+  background-color: rgba(41, 66, 102, 255);
+}
+
+@media only screen and (max-width: 770px) {
+  h2.menu-app-name {
+    margin-right: 15px;
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width:750px) {
+  .sidenav {
+    width: 100%;
+
+    .nav-list {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  h2.menu-app-name {
+    margin-right: 5px;
+    font-size: 11px;
+  }
+
+  .icon {
+    color: #ffffff;
+    font-size: 20px;
+  }
+
+  .title-menu {
+    color: #ffffff;
+    margin-left: 8%;
+  }
+}
+
+.lista {
+  margin-top: 0.5em;
+}
+
+.menuHijo {
+  list-style: none;
+  color: #ffffff;
+}
+
+.menuHijo:hover {
+  margin: 5%;
+  width: 150PX;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 15px 0;
+  border-radius: 25px;
+  border: 0.1px solid "099FFF";
+  background-color: #18181B;
+  box-shadow: 0 4px 8px 0 #00FFFF, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.menuHijo::after {
+  display: block;
+}
+
+.nav {
+  background-color: transparent;
+  color: white;
+  border: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+}

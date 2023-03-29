@@ -1,0 +1,79 @@
+.titulo {
+  text-align: center;
+  margin-top: 2%;
+  margin-left: 5%;
+  display: inline-block;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 6px;
+  width: 300px;
+  margin-left: 5%;
+}
+
+.search-container input {
+  border: none;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+}
+
+.search-container .texbox {
+  width: 0%;
+  text-indent: 16px;
+  transition: 0.4s;
+}
+
+.search-container:hover .texbox {
+  width: 100%;
+  border-bottom: solid;
+  border-radius: 20px;
+  border-color: rgba(41, 66, 102, 255);
+}
+
+.search-container input:not(:placeholder-shown) {
+  width: 100%;
+  border-bottom: solid;
+  border-radius: 20px;
+  border-color: rgba(41, 66, 102, 255);
+}
+
+.exportar {
+  background-color: rgba(41, 66, 102, 255);
+  border-radius: 0.5rem;
+  outline: none;
+  margin-top: 5%;
+  height: 3em;
+  margin-left: 88%;
+  display: inline-block;
+  position: sticky;
+  border-color: rgba(41, 66, 102, 255);
+  border-style: none;
+  color: white;
+  width: 8%;
+}
+
+.table-container{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+ table {
+   width: 100%;
+   margin: auto;
+ }
+
+ .mat-mdc-row .mat-mdc-cell {
+  font-size: medium;
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+}

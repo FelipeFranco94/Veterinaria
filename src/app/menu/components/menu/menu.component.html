@@ -1,0 +1,62 @@
+<div class="toolbar-container">
+  <mat-toolbar class="header-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon class="icon">menu</mat-icon>
+    </button>
+    <h2 class="title-menu" style="text-align: center;">VETERINARIA X-Y-Z</h2>
+    <mat-icon class="icon-person">person</mat-icon>
+    <p class="user">afranco</p>
+    <button mat-icon-button matTooltip="Cerrar sesíon"><mat-icon class="exit">exit_to_app</mat-icon></button>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container" [style.marginTop.px]='mobileQuery.matches ? 56 : 0'>
+    <mat-sidenav #snav [mode]='mobileQuery.matches ? "over" : "side"' [fixedInViewport]='mobileQuery.matches'
+      fixedTopGap="56" class="sidenav">
+      <mat-nav-list class="nav-list">
+        <div>
+          <img src="./../../../../assets/utils/logo.png" alt="" class="menu-logo">
+        </div>
+        <div class="items__container">
+          <div class="header">
+            <div class="lista">
+              <nav class="nav">
+                <ul class="lista">
+                  <li class="menuHijo">
+                    <a class="btn" routerLink="/paciente">
+                      <mat-icon class="icon">dialpad</mat-icon>Dueños
+                    </a>
+                  </li>
+                  <li class="menuHijo">
+                    <a class="btn" routerLink="/mascota-general">
+                      <mat-icon class="icon">pets</mat-icon>&nbsp;Mascotas
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <br>
+        </div>
+      </mat-nav-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+      <br><br><br>
+      <block-ui>
+        <router-outlet></router-outlet>
+      </block-ui>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+
+<ul>
+  <li (click)="snav.toggle()" class="manu" mat-list-item routerLink="/duenos" routerLinkActive='active'
+    id="link-rol-menu">
+    <mat-icon class="icon">dialpad</mat-icon>&nbsp;Pacientes
+  </li>
+  <li (click)="snav.toggle()" class="manu" mat-list-item routerLink="/mascotas-general" routerLinkActive='active'
+    id="link-rol-menu">
+    <mat-icon class="icon">pets</mat-icon>&nbsp;Mascotas
+  </li>
+</ul>

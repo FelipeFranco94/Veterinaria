@@ -1,0 +1,246 @@
+.container {
+  position: relative;
+}
+
+.scrollable-container {
+  height: 400px;
+  overflow-y: auto;
+}
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rate-limit-reached {
+  max-width: 360px;
+  text-align: center;
+}
+
+/* Column Widths */
+.mat-column-number,
+.mat-column-state {
+  max-width: 64px;
+}
+
+.mat-column-created {
+  max-width: 124px;
+}
+
+
+.titulo {
+  text-align: center;
+  margin-top: 2%;
+  margin-left: 5%;
+  display: inline-block;
+}
+
+.from_control {
+  background-color: gainsboro;
+  align-items: center;
+  display: inline-block;
+  margin-left: 5%;
+}
+
+.nuevo {
+  background-color: rgba(41, 66, 102, 255);
+  border-radius: 0.5rem;
+  outline: none;
+  margin-top: 5%;
+  height: 3em;
+  margin-left: 62%;
+  display: inline-block;
+  position: sticky;
+  border-color: rgba(41, 66, 102, 255);
+  border-style: none;
+  color: white;
+  width: 10%;
+}
+
+.nuevo:hover {
+  background-color: rgba(105, 188, 187, 255)
+}
+
+.importar,
+.exportar {
+  background-color: rgba(41, 66, 102, 255);
+  border-radius: 0.5rem;
+  outline: none;
+  margin-top: 5%;
+  height: 3em;
+  margin-left: 1%;
+  display: inline-block;
+  position: sticky;
+  border-color: rgba(41, 66, 102, 255);
+  border-style: none;
+  color: white;
+  width: 10%;
+}
+
+.importar:hover,
+.exportar:hover {
+  background-color: rgba(105, 188, 187, 255)
+}
+
+
+.edit {
+  background-color: rgba(41, 66, 102, 255);
+  width: 30px;
+  height: 30px;
+  border-radius: 0.5rem;
+  border: solid;
+  border-width: thin;
+  border-color: rgba(41, 66, 102, 255);
+  color: white;
+  padding-top: 1.5%;
+  padding-left: 2%;
+}
+
+.edit:hover {
+  background-color: rgba(105, 188, 187, 255);
+  color: white;
+}
+
+.modal-header {
+  background-color: white;
+  border-color: white;
+}
+
+.modal-title {
+  color: rgb(24, 21, 15);
+  margin-left: 35%;
+}
+
+.modal-body {
+  background-color: white;
+  border-color: white;
+}
+
+.cont-nombre {
+  text-align: center;
+  font-weight: 600;
+}
+
+.icon-client {
+  display: inline;
+  color: rgba(41, 66, 102, 255);
+  font-size: 200%;
+  margin-top: 10%;
+  margin-right: 5%;
+}
+
+.modal-footer {
+  background-color: white;
+  border-color: white;
+}
+
+.save {
+  background-color: white;
+  border-radius: 0.5rem;
+  margin-right: 15%;
+  width: 25%;
+  height: 50px;
+  border: solid;
+  border-width: thin;
+  text-decoration: none;
+  outline: none;
+  border-color: rgba(41, 66, 102, 255);
+  color: rgba(41, 66, 102, 255);
+  display: inline-block;
+  text-align: center;
+}
+
+.close {
+  background-color: white;
+  border-radius: 0.5rem;
+  margin-right: 15%;
+  width: 25%;
+  height: 50px;
+  border: solid;
+  border-width: thin;
+  text-decoration: none;
+  outline: none;
+  border-color: rgba(41, 66, 102, 255);
+  color: rgba(41, 66, 102, 255);
+  display: inline-block;
+}
+
+::ng-deep .full-width {
+  width: 70%;
+  height: 70px;
+}
+
+.icon-button {
+  display: inline;
+  color: rgba(41, 66, 102, 255);
+  font-size: 180%;
+  margin-top: 10%;
+  margin-right: 5%;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 6px;
+  width: 300px;
+  margin-left: 5%;
+}
+
+.search-container input {
+  border: none;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+}
+
+.search-container .texbox {
+  width: 0%;
+  text-indent: 16px;
+  transition: 0.4s;
+}
+
+
+.search-container:hover .texbox {
+  width: 100%;
+  border-bottom: solid;
+  border-radius: 20px;
+  border-color: rgba(41, 66, 102, 255);
+}
+
+.search-container input:not(:placeholder-shown) {
+  width: 100%;
+  border-bottom: solid;
+  border-radius: 20px;
+  border-color: rgba(41, 66, 102, 255);
+}
+
+.table-container{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+table {
+  width: 85%;
+  margin: auto;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  font-size: medium;
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+}

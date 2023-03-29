@@ -1,0 +1,49 @@
+<section class="d-flex align-item-center justify-content-center">
+  <div class="container">
+    <div class="col-md-12">
+      <h1>Bienvenidos Veterinaria XYZ</h1>
+    </div>
+    <div class="col-md-12">
+      <hr>
+    </div>
+  </div>
+  <form class="custom-form" method="post">
+    <div class="row mt-4 text-center">
+      <div class="col-12">
+        <img src="src\assets\utils\login.jpg" alt="Logo" class="logo"><br>
+      </div>
+      <div class="container">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <input style="text-align: inherit;" matInput #input type="email" placeholder="Ex: ejemplo@gmail.com"
+            autocomplete="off" [(ngModel)]="email" name="email" required="required">
+          <button matSuffix mat-icon-button (click)="value=''" matTooltip="Limpiar">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="container">
+        <mat-form-field class="full-width" appearance="outline">
+               <mat-label>Ingrese su contraseña</mat-label>
+        <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" required="required" style="text-align: inherit;" matInput #input [type]="hide ? 'password' : 'text'"
+           autocomplete="off">
+        <button matTooltip="Ver - Ocultar" mat-icon-button matSuffix (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        </mat-form-field>
+      </div>
+      <div class="col-12 mt-2">
+        <button mat-fab extended color="primary" (click)="login()">
+          <mat-icon>pets</mat-icon>
+          Iniciar sesión
+        </button>
+      </div>
+    </div>
+  </form><br>
+  <div class="row" *ngIf="errorInicio">
+    <label class="float-right" style="color: red;">Usuiaro o passwordo incorrecto...</label>
+  </div>
+</section>
+
+
