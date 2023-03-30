@@ -14,9 +14,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Unit Test
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para la ejecución de pruebas unitarias y generación de reporte de covertura ejecutar el comando 
+`ng test --no-watch --code-coverage` ubicación de generación: coverage\ruta-lavado-cafe-front
+
 
 ## Running end-to-end tests
 

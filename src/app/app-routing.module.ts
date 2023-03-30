@@ -17,7 +17,7 @@ const routes: Routes = [
         {
           path: '',
           pathMatch: 'full',
-          redirectTo: '/home'
+          redirectTo: 'home'
         },
         {
           path: 'home',
@@ -43,7 +43,7 @@ const routes: Routes = [
   },
   { path: "login",   loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
   { path: "register", component: RegisterComponent, pathMatch: "full" },
-  { path: '**', pathMatch: 'full', redirectTo: '/home' }
+  { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],

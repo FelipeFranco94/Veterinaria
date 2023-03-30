@@ -30,6 +30,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableExporterModule } from "mat-table-exporter";
 import { MaterialModule } from './material/material.module';
 import { MenuModule } from "./menu/menu.module";
+import { LoginComponent } from './login/components/login/login.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { MenuModule } from "./menu/menu.module";
         MascotasComponent,
         MascotasGeneralComponent,
         RegisterComponent,
+        LoginComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],
