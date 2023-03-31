@@ -19,11 +19,11 @@ export class DuenosService {
     return this.servicio.post<Duenos>(`${this.servidor}/duenos`, duenos);
   }
 
-  editar(duenos: Duenos) {
-    return this.servicio.put<Duenos>(`${this.servidor}/duenos/`, duenos.nmid);
+  editar(array: any[]) {
+    return this.servicio.post<Duenos>(`${this.servidor}/duenos/`, array);
   }
 
-  updateDuenos(duenos: Duenos) {
+    updateDuenos(duenos: Duenos) {
     return this.servicio.put<Duenos>(`${this.servidor}/duenos`, duenos);
   }
 }

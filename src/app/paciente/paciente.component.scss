@@ -25,7 +25,6 @@
   text-align: center;
 }
 
-/* Column Widths */
 .mat-column-number,
 .mat-column-state {
   max-width: 64px;
@@ -54,15 +53,14 @@
   background-color: rgba(41, 66, 102, 255);
   border-radius: 0.5rem;
   outline: none;
-  margin-top: 5%;
   height: 3em;
   margin-left: 62%;
   display: inline-block;
-  position: sticky;
   border-color: rgba(41, 66, 102, 255);
   border-style: none;
   color: white;
   width: 10%;
+  text-align: center;
 }
 
 .nuevo:hover {
@@ -78,11 +76,11 @@
   height: 3em;
   margin-left: 1%;
   display: inline-block;
-  position: sticky;
   border-color: rgba(41, 66, 102, 255);
   border-style: none;
   color: white;
   width: 10%;
+  text-align: center;
 }
 
 .importar:hover,
@@ -243,4 +241,8 @@ table {
 
 .mat-mdc-row:hover .mat-mdc-cell {
   border-color: currentColor;
+}
+
+.button-container{
+
 }

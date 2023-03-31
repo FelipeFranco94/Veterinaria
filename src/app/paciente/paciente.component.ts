@@ -17,13 +17,12 @@ import * as XLSX from 'xlsx';
 })
 export class PacienteComponent implements OnInit {
   myForm!: FormGroup;
-  myFormExcel!: FormGroup;
   filterPost = '';
   currentPage = 0;
-  fileName = '';
-  xlsxduenos: Array<Duenos> = [];
   displayedColumns: string[] = ['nmid', 'dsnombre_dueno', 'dstipo_documento', 'nmidentificacion', 'dsciudad', 'dsdireccion', 'nmtelefono', 'dtfecha_registro', 'accion'];
   dataSource: MatTableDataSource<Duenos>;
+  duenosExcel: Array<Duenos> = [];
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   constructor(private router: Router, private fb: FormBuilder, private _httpClient: HttpClient, private modalService: NgbModal, private config: NgbModalConfig, private servicioDuenos: DuenosService) {
@@ -97,12 +96,11 @@ export class PacienteComponent implements OnInit {
       });
   }
 
-
   mostrar(datos: { nmid: number; dsnombre_dueno: string; }) {
     this.router.navigate(["mascotas"], { queryParams: { nmid: datos.nmid, dsnombre_dueno: datos.dsnombre_dueno } });
   }
 
-  validguardar(form: FormGroup) {
+ /* validguardar(form: FormGroup) {
     if (this.myForm.invalid) {
       for (const key in this.myForm.controls) {
         this.myForm.controls[key].markAsDirty
@@ -120,7 +118,7 @@ export class PacienteComponent implements OnInit {
       let dueno: any = document.getElementById("dsnombre_dueno");
       let duenoValido: boolean = dueno.reportValidity();
     }
-  }
+  }*/
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -128,27 +126,6 @@ export class PacienteComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  }
-
-  openModalExcel(content: any) {
-    this.modalService.open(content, { size: 'xl' });
-  }
-
-  guardarExcel() {
-    if(this.xlsxduenos.length > 0){
-    for(let i = 0 ; i < this.xlsxduenos.length ; i++){
-      this.servicioDuenos.createDuenos(this.xlsxduenos[i])
-      .subscribe(data => {
-        this.getAllConjunto();
-      }
-      )
-    }
-    alert("Guardado dueños correctamente!");
-    this.xlsxduenos.pop();
-  }else{
-    alert("Por favor cargue un archivo valido!")
-  }
-
   }
 
   ReadExcel(event: any) {
@@ -159,16 +136,8 @@ export class PacienteComponent implements OnInit {
     fileReader.onload = (e) => {
       var workBook = XLSX.read(fileReader.result, { type: 'binary' });
       var sheetNames = workBook.SheetNames;
-      this.xlsxduenos = XLSX.utils.sheet_to_json(workBook.Sheets[sheetNames[0]])
-      console.log(sheetNames);
-
-    }
-  }
-
-  eliminara(item: any){
-    if (confirm("¿Esta seguro de eliminar este registro?")) {
-      this.servicioDuenos.createDuenos(item).subscribe((data) => {
-      }, (error) => console.log(error));
+      this.duenosExcel = XLSX.utils.sheet_to_json(workBook.Sheets[sheetNames[0]])
+      console.log("Dueños", this.duenosExcel)
     }
   }
 }

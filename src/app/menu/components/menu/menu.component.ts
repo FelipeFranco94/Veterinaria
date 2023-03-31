@@ -18,5 +18,4 @@ export class MenuComponent {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
   }
-
 }

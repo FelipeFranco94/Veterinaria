@@ -7,15 +7,20 @@
   <input class="texbox" type="text" (keyup)="applyFilter($event)" placeholder="Buscar por dueño" autocomplete="off"
     [(ngModel)]="filterPost" name="filterPosts">
 </div>
+<div  class="button-container">
+  <label class="nuevo" mat-icon (click)="open(content)" mat-list-item>
+    Nuevo<mat-icon>wc</mat-icon>
+  </label>
 
-<button class="nuevo" mat-icon (click)="open(content)" mat-list-item>
-  Nuevo<mat-icon>wc</mat-icon>
-</button>
-<button class="importar"  mat-icon (click)="openModalExcel(contentn)" mat-list-item>
-  Importar<mat-icon>cloud_upload</mat-icon>
-</button>
-<button class="exportar" (click)="exporter.exportTable('xlsx', {fileName:'datos-duenos-mascotas'})">
-  <mat-icon>cloud_download</mat-icon>Exportar</button>
+  <label class="importar">
+    Importar<mat-icon>cloud_upload</mat-icon>
+    <input type="file" name="fileUpload" multiple="multiple" accept="accept" (change)="ReadExcel($event)" style="display: none">
+  </label>
+
+  <label class="exportar" (click)="exporter.exportTable('xlsx', {fileName:'datos-duenos-mascotas'})">
+    <mat-icon>cloud_download</mat-icon>Exportar</label>
+</div>
+
 <!--
   [matMenuTriggerFor]="exportMenu"
   <mat-menu #exportMenu="matMenu" class="menu-export">
@@ -159,64 +164,6 @@
         <mat-icon class="icon-button">save</mat-icon>
       </button>
       <button class="close" type="button" (click)="d('Cross click')">Cancelar</button>
-    </div>
-  </form>
-</ng-template>
-
-
-
-<!-- Modal para importar datos -->
-
-<ng-template class="template" #contentn let-c="close" let-d="dismiss">
-  <form [formGroup]="myFormExcel" (ngSubmit)="guardarExcel()">
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Registro semanal</h4>
-      <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
-    </div>
-    <div class="modal-footer">
-      <label class="btnfile">Cargar Archivo<mat-icon id="icon-add2">cloud_upload</mat-icon>
-        <input type="file" name="file" id="file" (change)="ReadExcel($event)">
-      </label>
-    </div>
-    <table class="table table-bordered hover table-borderless">
-      <thead>
-        <tr>
-          <th style="text-align:center">nmid</th>
-          <th style="text-align:center">dsnombre_dueno</th>
-          <th style="text-align:center">dstipo_documento</th>
-          <th style="text-align:center">nmidentificacion</th>
-          <th style="text-align:center">dsciudad</th>
-          <th style="text-align:center">dsdireccion</th>
-          <th style="text-align:center">nmtelefono</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="text-align:center;" *ngFor="let item of xlsxduenos">
-          <td>{{ item.nmid}}</td>
-          <td>{{ item.dsnombre_dueno }}</td>
-          <td>{{ item.dstipo_documento }}</td>
-          <td>{{ item.nmidentificacion}}</td>
-          <td>{{ item.dsciudad }}</td>
-          <td>{{ item.dsdireccion }}</td>
-          <td>{{ item.nmtelefono}}</td>
-          <td>
-            <button title="Eliminar" (click)="eliminara(item)" class="cambio">
-              <mat-icon>close</mat-icon>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <br>
-    <div class="modal-footer">
-      <button type="submit" [disabled]="myForm.invalid" class="save" (click)="d('Cross click')">
-        <abbr title="Guardar y salir">
-          <mat-icon class="icon-button">save subdirectory_arrow_right</mat-icon>
-        </abbr>
-      </button>
-      <button type="button" class="close" (click)="d('Cross click')">
-        Cancelar
-      </button>
     </div>
   </form>
 </ng-template>

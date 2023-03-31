@@ -6,5 +6,5 @@ export interface Duenos {
   dsciudad: string;
   dsdireccion: string;
   nmtelefono: number;
-  dtfecha_registro: Date;
+  dtfecha_registro: any;
 }

@@ -15,12 +15,9 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./mascotas-general.component.scss']
 })
 export class MascotasGeneralComponent implements OnInit {
-  resultsLength = 0;
   filterPost = "";
   total: number = 0;
-  currentPage = 0;
   dataSource: MatTableDataSource<any>;
-  pageSizeOptions = [5, 10, 20, 50, 100];
   displayedColumns: string[] = ['nmid', 'dsnombre_dueno', 'dsnombre_mascota', 'dsespecie', 'dsraza', 'dtfecha_nacimiento'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

@@ -29,80 +29,46 @@ describe('DuenosService', () => {
     expect(methodSpy).toHaveBeenCalledWith(`${environment.url_api}/duenos/`);
   });
 
+  it('should call createDuenos', () => {
+    const methodSpy = spyOn(service.servicio,'post').and.returnValue(of({}));
+    let duenosMascota: Duenos;
+    duenosMascota = {
+      dsciudad: '',
+      dsdireccion: '',
+      dsnombre_dueno: '',
+      dstipo_documento: '',
+      dtfecha_registro: '',
+      nmid: 1,
+      nmidentificacion: 1,
+      nmtelefono: 1
+    };
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    service.createDuenos(duenosMascota);
+     expect(methodSpy).toHaveBeenCalledWith(`${environment.url_api}/duenos`, duenosMascota, jasmine.anything());
+   });
 
-  // it('should call createDuenos', () => {
-  //   const methodSpy = spyOn(service.servicio, 'post').and.returnValue(of({}));
-  //   const duenos: Duenos = {
-  //     tipoComponente: {
-  //       nmid: 1,
-  //       dsnombre_dueno: '',
-  //       dstipo_documento: '',
-  //       nmidentificacion: 1,
-  //       dsciudad: '',
-  //       dsdireccion: '',
-  //       nmtelefono: 1,
-  //       dtfecha_registro: ''
-  //     },
-  //     listaComponentes: []
-  //   };
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       'Content-Type': 'application/json'
-  //     })
-  //   };
-  //   service.createDuenos(duenos);
-  //   expect(methodSpy).toHaveBeenCalledWith(`${environment.url_api}/duenos`, duenos, jasmine.anything());
-  // });
-
-
-  // it('should call editar', () => {
-  //   const methodSpy = spyOn(service.servicio, 'put').and.returnValue(of({}));
-  //   const duenos: Duenos = {
-  //     tipoComponente: {
-  //       nmid: 1,
-  //       dsnombre_dueno: '',
-  //       dstipo_documento: '',
-  //       nmidentificacion: 1,
-  //       dsciudad: '',
-  //       dsdireccion: '',
-  //       nmtelefono: 1,
-  //       dtfecha_registro: ''
-  //     },
-  //     listaComponentes: []
-  //   };
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       'Content-Type': 'application/json'
-  //     })
-  //   };
-  //   service.editar(duenos);
-  //   expect(methodSpy).toHaveBeenCalledWith(`${environment.url_api}/duenos`, duenos.nmid, jasmine.anything());
-  // });
-
-
-  // it('should call updateDuenos', () => {
-  //   const methodSpy = spyOn(service.servicio, 'put').and.returnValue(of({}));
-  //   const duenos: Duenos = {
-  //     tipoComponente: {
-  //       nmid: 1,
-  //       dsnombre_dueno: '',
-  //       dstipo_documento: '',
-  //       nmidentificacion: 1,
-  //       dsciudad: '',
-  //       dsdireccion: '',
-  //       nmtelefono: 1,
-  //       dtfecha_registro: ''
-  //     },
-  //     listaComponentes: []
-  //   };
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       'Content-Type': 'application/json'
-  //     })
-  //   };
-  //   service.updateDuenos(duenos);
-  //   expect(methodSpy).toHaveBeenCalledWith(`${environment.url_api}/duenos`, duenos, jasmine.anything());
-  // });
-
-
+   it('should call updateDuenos', () => {
+     const methodSpy = spyOn(service.servicio, 'put').and.returnValue(of({}));
+     const duenos: Duenos = {
+         nmid: 1,
+         dsnombre_dueno: '',
+         dstipo_documento: '',
+         nmidentificacion: 1,
+         dsciudad: '',
+         dsdireccion: '',
+         nmtelefono: 1,
+         dtfecha_registro: ''
+       }
+     const httpOptions = {
+       headers: new HttpHeaders({
+         'Content-Type': 'application/json'
+       })
+     };
+     service.updateDuenos(duenos);
+     expect(methodSpy).toHaveBeenCalledWith(`${environment.url_api}/duenos`, duenos, jasmine.anything());
+   });
 });
